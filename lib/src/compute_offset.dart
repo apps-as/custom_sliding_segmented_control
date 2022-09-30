@@ -3,9 +3,10 @@ double computeOffset<T>({
   required List<T?> items,
   T? current,
 }) {
-  if (sizes.isNotEmpty) {
+  final index = items.indexOf(current);
+  if (sizes.length > index) {
     return sizes
-        .getRange(0, items.indexOf(current))
+        .getRange(0, index)
         .toList()
         .fold<double>(0, (previousValue, element) => previousValue + element);
   } else {
